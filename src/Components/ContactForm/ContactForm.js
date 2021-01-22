@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './ContactForm.module.css';
 import { getContacts } from '../../redux/selectors';
-import actions from '../../redux/actions';
+import { addContact } from '../../redux/operations';
 
 function ContactForm() {
   const { register, handleSubmit, errors, reset } = useForm();
@@ -20,7 +20,11 @@ function ContactForm() {
       alert(`${data.name} is already in Phonebook`);
       return;
     }
-    dispatch(actions.addContact(data.name.trim(), data.number.trim()));
+    console.log(data.name);
+    console.log(data.number.trim());
+    dispatch(
+      addContact({ name: data.name.trim(), number: data.number.trim() }),
+    );
     btn.current.blur();
     reset({});
   };

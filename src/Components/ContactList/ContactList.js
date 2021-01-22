@@ -7,11 +7,12 @@ import {
   getFilter,
   getFilteredContacts,
 } from '../../redux/selectors';
-import actions from '../../redux/actions';
+import { deleteContact } from '../../redux/operations';
 
 function ContactList() {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
+
   const filteredContacts = useSelector(getFilteredContacts);
   const dispatch = useDispatch();
 
@@ -24,7 +25,7 @@ function ContactList() {
           id: contact.id,
           name: contact.name,
           phone: contact.number,
-          deleteHandler: () => dispatch(actions.deleteContact(contact.id)),
+          deleteHandler: () => dispatch(deleteContact(contact.id)),
         }),
       )}
     </ul>
