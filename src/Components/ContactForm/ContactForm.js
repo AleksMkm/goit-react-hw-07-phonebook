@@ -20,8 +20,6 @@ function ContactForm() {
       alert(`${data.name} is already in Phonebook`);
       return;
     }
-    console.log(data.name);
-    console.log(data.number.trim());
     dispatch(
       addContact({ name: data.name.trim(), number: data.number.trim() }),
     );

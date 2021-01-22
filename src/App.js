@@ -1,25 +1,22 @@
-import React, { createRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Container from './Components/Container';
 import ContactList from './Components/ContactList';
 import ContactForm from './Components/ContactForm';
 import Section from './Components/Section';
 import Filter from './Components/Filter';
-import { getContacts } from './redux/selectors';
+import { getContacts, getLoadingData } from './redux/selectors';
 import { fetchContacts } from './redux/operations';
+import Loader from './Components/Loader';
 
 function App() {
   const contacts = useSelector(getContacts);
+  const isLoading = useSelector(getLoadingData);
   const dispatch = useDispatch();
-  const isFirstRender = createRef(true);
-
-  console.log(dispatch);
 
   useEffect(() => {
-    if (isFirstRender) {
-      dispatch(fetchContacts());
-    }
-  });
+    dispatch(fetchContacts());
+  }, []);
 
   return (
     <Container>
@@ -27,7 +24,9 @@ function App() {
         <ContactForm />
       </Section>
       <Section title="Contacts">
-        {contacts.length ? (
+        {isLoading ? (
+          <Loader />
+        ) : contacts.length ? (
           <>
             <Filter />
             <ContactList />
