@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './Section.module.css';
 
-function Section({ title, children }) {
+function Section({ title, children, flex }) {
+  const flexClass = flex ? styles.flex : '';
+
   return (
-    <section className={styles.section}>
+    <section className={styles.section + ' ' + flexClass}>
       <p className={styles.title}>{title}</p>
       {children}
     </section>

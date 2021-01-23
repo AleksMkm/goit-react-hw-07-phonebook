@@ -10,3 +10,7 @@
   font-weight: 700;
   font-size: 24px;
 }
+
+.flex {
+  flex: 1 0 auto;
+}

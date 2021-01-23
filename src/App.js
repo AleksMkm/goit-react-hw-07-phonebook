@@ -7,6 +7,7 @@ import Section from 'Components/Section';
 import Filter from 'Components/Filter';
 import { operations, selectors } from 'redux/contacts';
 import Loader from 'Components/Loader';
+import Footer from 'Components/Footer';
 
 function App() {
   const contacts = useSelector(selectors.getContacts);
@@ -20,10 +21,10 @@ function App() {
 
   return (
     <Container>
-      <Section title="Phonebook">
+      <Section title="Phonebook" flex={false}>
         <ContactForm />
       </Section>
-      <Section title="Contacts">
+      <Section title="Contacts" flex={true}>
         {isLoading ? (
           <Loader />
         ) : contacts.length ? (
@@ -35,6 +36,7 @@ function App() {
           <div>Oops. no contacts here! Let's add some data!</div>
         )}
       </Section>
+      <Footer />
     </Container>
   );
 }

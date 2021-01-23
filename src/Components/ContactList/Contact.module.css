@@ -1,8 +1,6 @@
 .contact {
   display: flex;
   justify-content: space-between;
-
-  font-family: Roboto, sans-serif;
 }
 
 .contact:not(:last-child) {
@@ -29,8 +27,6 @@
 
 .btn {
   padding: 2px;
-
-  font-family: Roboto, sans-serif;
 
   background-color: transparent;
   border: 1px solid black;
