@@ -34,11 +34,9 @@ const error = createReducer(null, {
   [deleteContact.pending]: () => null,
 });
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   contacts,
   filter,
   isLoading,
   error,
 });
-
-export default rootReducer;

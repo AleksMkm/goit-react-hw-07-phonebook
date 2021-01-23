@@ -4,7 +4,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import DeleteIcon from '@material-ui/icons/Delete';
 import styles from './Contact.module.css';
-import IconButton from '../IconButton/';
+import IconButton from 'Components/IconButton/';
 
 function Contact({ id, name, phone, deleteHandler }) {
   return (

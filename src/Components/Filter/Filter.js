@@ -1,11 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Filter.module.css';
-import { getFilter } from '../../redux/selectors';
-import { changeFilter } from '../../redux/actions';
+import { operations, selectors } from 'redux/contacts';
 
 function Filter() {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectors.getFilter);
 
   const dispatch = useDispatch();
 
@@ -17,7 +16,7 @@ function Filter() {
           className={styles.searchField}
           type="text"
           value={filter}
-          onChange={e => dispatch(changeFilter(e.target.value))}
+          onChange={e => dispatch(operations.changeFilter(e.target.value))}
         />
       </label>
     </form>

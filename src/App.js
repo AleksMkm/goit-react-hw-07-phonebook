@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Container from './Components/Container';
-import ContactList from './Components/ContactList';
-import ContactForm from './Components/ContactForm';
-import Section from './Components/Section';
-import Filter from './Components/Filter';
-import { getContacts, getLoadingData } from './redux/selectors';
-import { fetchContacts } from './redux/operations';
-import Loader from './Components/Loader';
+import Container from 'Components/Container';
+import ContactList from 'Components/ContactList';
+import ContactForm from 'Components/ContactForm';
+import Section from 'Components/Section';
+import Filter from 'Components/Filter';
+import { operations, selectors } from 'redux/contacts';
+import Loader from 'Components/Loader';
 
 function App() {
-  const contacts = useSelector(getContacts);
-  const isLoading = useSelector(getLoadingData);
+  const contacts = useSelector(selectors.getContacts);
+  const isLoading = useSelector(selectors.getLoadingData);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(operations.fetchContacts());
+    //eslint-disable-next-line
   }, []);
 
   return (

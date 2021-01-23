@@ -2,13 +2,12 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './ContactForm.module.css';
-import { getContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/operations';
+import { operations, selectors } from 'redux/contacts';
 
 function ContactForm() {
   const { register, handleSubmit, errors, reset } = useForm();
   const btn = useRef();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectors.getContacts);
   const dispatch = useDispatch();
 
   const onSubmit = data => {
@@ -21,7 +20,10 @@ function ContactForm() {
       return;
     }
     dispatch(
-      addContact({ name: data.name.trim(), number: data.number.trim() }),
+      operations.addContact({
+        name: data.name.trim(),
+        number: data.number.trim(),
+      }),
     );
     btn.current.blur();
     reset({});
