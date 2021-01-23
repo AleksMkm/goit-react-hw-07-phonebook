@@ -1,10 +1,12 @@
+@import '../../styles/variables.scss';
+
 .iconBtn {
   margin: 0;
   padding: 5px;
   border: none;
   border-radius: 50%;
-  color: white;
-  background-color: black;
+  color: $textColor;
+  background-color: $outerBackgroundColor;
   outline: none;
   font: inherit;
   cursor: pointer;
@@ -13,11 +15,11 @@
   align-items: center;
   justify-content: center;
 
-  transition: background-color 250ms ease, color 250ms ease;
-}
+  @include twoTransitions(color, background-color);
 
-.iconBtn:hover,
-.iconBtn:focus {
-  color: black;
-  background-color: orange;
+  &:hover,
+  &:focus {
+    color: $textColor;
+    background-color: $accentColor;
+  }
 }

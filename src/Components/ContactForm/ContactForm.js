@@ -49,12 +49,12 @@ function ContactForm() {
         )}
         {errors.name && errors.name.type === 'minLength' && (
           <p className={styles.error}>
-            Name is too short. Minimum 3 characters required.
+            Name is too short. Minimum 3 characters.
           </p>
         )}
         {errors.name && errors.name.type === 'maxLength' && (
           <p className={styles.error}>
-            Name is too long. Maximum 18 characters allowed.
+            Name is too long. Maximum 18 characters.
           </p>
         )}
         {errors.name && errors.name.type === 'pattern' && (
@@ -63,7 +63,7 @@ function ContactForm() {
       </label>
       <label className={styles.label}>
         <input
-          ref={register({ required: true, pattern: /^\d+$/ })}
+          ref={register({ required: true, maxLength: 12, pattern: /^\d+$/ })}
           className={styles.addField}
           type="text"
           name="number"
@@ -76,6 +76,9 @@ function ContactForm() {
           <p className={styles.error}>
             Phone number should consist only from numbers.
           </p>
+        )}
+        {errors.number && errors.number.type === 'maxLength' && (
+          <p className={styles.error}>Number is too long. Maximum 12 digits.</p>
         )}
       </label>
       <button ref={btn} className={styles.btn} type="submit">
