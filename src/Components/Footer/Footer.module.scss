@@ -1,5 +1,5 @@
 .wrapper {
-  composes: mainBackgroundColor from 'styles/variables.css';
+  composes: mainBackgroundColor from 'styles/variables.scss';
 
   width: 100%;
   flex-shrink: 0;

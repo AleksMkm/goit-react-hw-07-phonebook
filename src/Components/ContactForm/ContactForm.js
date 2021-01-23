@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './ContactForm.module.css';
+import styles from './ContactForm.module.scss';
 import { operations, selectors } from 'redux/contacts';
 
 function ContactForm() {

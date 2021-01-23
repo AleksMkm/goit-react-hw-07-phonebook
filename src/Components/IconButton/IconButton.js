@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './IconButton.module.css';
+import styles from './IconButton.module.scss';
 
 function IconButton({ children, onClick, ...allyProps }) {
   return (
