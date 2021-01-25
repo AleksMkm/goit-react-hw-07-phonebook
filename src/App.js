@@ -11,6 +11,7 @@ import Footer from 'Components/Footer';
 
 function App() {
   const contacts = useSelector(selectors.getContacts);
+  const error = useSelector(selectors.getErrorData);
   const isLoading = useSelector(selectors.getLoadingData);
   const dispatch = useDispatch();
 
@@ -32,6 +33,8 @@ function App() {
             <Filter />
             <ContactList />
           </>
+        ) : error ? (
+          <div>Oops. {error}.</div>
         ) : (
           <div>Oops. no contacts here! Let's add some data!</div>
         )}
